@@ -5,6 +5,7 @@ const { PORT } = require('./util/config')
 const { connectToDatabase } = require('./util/db')
 
 const productsRouter = require('./controllers/products')
+const productsInfoRouter = require('./controllers/productsInfo')
 
 const middleware = require('./util/middleware')
 
@@ -12,6 +13,8 @@ app.use(express.json())
 app.use(middleware.requestLogger)
 
 app.use('/api/products', productsRouter)
+app.use('/api/productsInfo', productsInfoRouter)
+
 
 app.use(express.static(__dirname + '/public'));
 
