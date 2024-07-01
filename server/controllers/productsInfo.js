@@ -5,23 +5,30 @@ const {Op} = require("sequelize");
 
 router.get('/', async (req, res) => {
   const query = req.query.query || '';
-  let where = {};
+  const range = req.query.range || '';
 
-  if (req.query.query) {
-    where = {
-      [Op.or]: [
-        {
-          name: {
-            [Op.iLike]: `%${query}%`
-          }
-        },
-        {
-          excerpt: {
-            [Op.iLike]: `%${query}%`
-          }
+  const where = {
+    [Op.and] : [
+      {
+        range: {
+          [Op.iLike]: `%${range}%`
         }
-      ]
-    }
+      },
+      {
+        [Op.or]: [
+          {
+            name: {
+              [Op.iLike]: `%${query}%`
+            }
+          },
+          {
+            excerpt: {
+              [Op.iLike]: `%${query}%`
+            }
+          }
+        ]
+      }
+    ]
   }
 
   try {

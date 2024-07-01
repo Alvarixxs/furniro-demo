@@ -6,25 +6,31 @@ router.get('/', async (req, res) => {
   const currentPage = parseInt(req.query.currentPage) || 1;
   const numItems = parseInt(req.query.numItems) || 10;
   const query = req.query.query || '';
+  const range = req.query.range || '';
 
   const offset = (currentPage - 1) * numItems;
-  let where = {};
-
-  if (req.query.query) {
-    where = {
-      [Op.or]: [
-        {
-          name: {
-            [Op.iLike]: `%${query}%`
-          }
-        },
-        {
-          excerpt: {
-            [Op.iLike]: `%${query}%`
-          }
+  const where = {
+    [Op.and] : [
+      {
+        range: {
+          [Op.iLike]: `%${range}%`
         }
-      ]
-    }
+      },
+      {
+        [Op.or]: [
+          {
+            name: {
+              [Op.iLike]: `%${query}%`
+            }
+          },
+          {
+            excerpt: {
+              [Op.iLike]: `%${query}%`
+            }
+          }
+        ]
+      }
+    ]
   }
 
   try {

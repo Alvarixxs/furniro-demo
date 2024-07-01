@@ -39,6 +39,10 @@ Product.init({
     validate: {
       max: 100,
     }
+  },
+  range: {
+    type: DataTypes.TEXT,
+    allowNull: false,
   }
 }, {
   sequelize,
