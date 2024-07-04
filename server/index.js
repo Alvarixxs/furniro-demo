@@ -6,6 +6,7 @@ const { connectToDatabase } = require('./util/db')
 
 const productsRouter = require('./controllers/products')
 const productsInfoRouter = require('./controllers/productsInfo')
+const contactsRouter = require('./controllers/contacts')
 
 const middleware = require('./util/middleware')
 
@@ -14,7 +15,7 @@ app.use(middleware.requestLogger)
 
 app.use('/api/products', productsRouter)
 app.use('/api/productsInfo', productsInfoRouter)
-
+app.use('/api/contacts', contactsRouter)
 
 app.use(express.static(__dirname + '/public'));
 
