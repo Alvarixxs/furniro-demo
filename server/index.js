@@ -9,7 +9,9 @@ const productsInfoRouter = require('./controllers/productsInfo')
 const contactsRouter = require('./controllers/contacts')
 
 const middleware = require('./util/middleware')
+const cors = require('cors')
 
+app.use(cors())
 app.use(express.json())
 app.use(middleware.requestLogger)
 
