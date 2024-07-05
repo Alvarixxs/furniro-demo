@@ -4,7 +4,7 @@ import Newsletter from "@/app/ui/_components/_footer/Newsletter";
 
 function Footer() {
   return (
-    <footer className="bg-white px-12 md:px-24 border-t border-t-trans-black flex flex-col mt-14">
+    <footer className="bg-white px-12 md:px-24 border-t border-t-trans-black flex flex-col">
       <div className="flex py-12 gap-10 md:gap-20 lg:gap-40 border-b border-b-trans-black flex-col md:flex-row">
         <div className="flex flex-col gap-7 md:gap-14">
           <p className={`font-bold text-black text-2xl ${montserrat.className}`}>Furniro.</p>

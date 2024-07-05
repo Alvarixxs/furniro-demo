@@ -5,7 +5,7 @@ import {menuItems} from "@/app/ui/menuItems";
 
 function DesktopHeader() {
   return (
-    <header className="bg-white py-8 pl-6 xl:pl-12 pr-12 xl:pr-24 lg:flex items-center justify-between hidden">
+    <div className="bg-white py-8 pl-6 xl:pl-12 pr-12 xl:pr-24 flex items-center justify-between">
       <Logo />
       <div className="flex text-base text-black gap-10 xl:gap-20 font-medium">
         {menuItems.navItems.map((item) => (
@@ -19,7 +19,7 @@ function DesktopHeader() {
           </Link>
         ))}
       </div>
-    </header>
+    </div>
   )
 }
 

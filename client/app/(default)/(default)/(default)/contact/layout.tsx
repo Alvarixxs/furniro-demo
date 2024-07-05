@@ -1,13 +1,16 @@
-import Header from "@/app/ui/_components/_header/Header";
+import type {Metadata} from "next";
 
-export default function Layout({
+export const metadata: Metadata = {
+  title: "Contact | Furniro",
+}
+
+export default function RootLayout({
                                      children,
                                    }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <main>
-      <Header />
       {children}
     </main>
   );
