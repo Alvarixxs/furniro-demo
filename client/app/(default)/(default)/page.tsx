@@ -6,7 +6,7 @@ import Image from "next/image";
 import ImagesDesktop from "/public/share/imagesDesktop.png";
 import ImagesMobile from "/public/share/imagesMobile.png";
 import {Suspense} from "react";
-import {FeaturedProductsSkeleton} from "@/app/ui/_components/skeletons";
+import {FeaturedProductsSkeleton} from "@/app/ui/_components/_utils/skeletons";
 
 export default function Home() {
   return (
@@ -28,7 +28,7 @@ export default function Home() {
         <h2 className="text-light-black font-bold text-3xl">Browse The Range</h2>
         <p className="text-medium-gray text-lg mb-12 text-wrap">Lorem ipsum dolor sit amet, consectetur adipiscing
           elit.</p>
-        <Range/>
+        <Range />
       </section>
       <section className="flex flex-col items-center mt-14 px-6 gap-8">
         <h2 className="font-bold text-4xl text-light-black">Our products</h2>

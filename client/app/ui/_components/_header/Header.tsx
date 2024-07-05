@@ -1,5 +1,5 @@
-import DesktopHeader from "@/app/ui/_components/_header/DesktopHeader";
-import MobileHeader from "@/app/ui/_components/_header/MobileHeader";
+import DesktopHeader from "@/app/ui/_components/_header/_desktop/DesktopHeader";
+import MobileHeader from "@/app/ui/_components/_header/_mobile/MobileHeader";
 
 function Header() {
   return (

@@ -1,6 +1,6 @@
 import {SyntheticEvent} from "react";
 
-function InputField({type, label, value, placeholder, handleChange, required}: InputProps) {
+function InputField({type, label, value, placeholder, onChange, required}: InputProps) {
   const className = "py-5 px-7 max-w-[528px] md:w-[528px] border border-light-gray rounded-xl"
   return (
     <div className="flex flex-col gap-4 text-base">
@@ -12,7 +12,7 @@ function InputField({type, label, value, placeholder, handleChange, required}: I
           placeholder={placeholder}
           className={`${className} h-28`}
           value={value}
-          onChange={handleChange}
+          onChange={onChange}
         />
       ) : (
         <input
@@ -20,7 +20,7 @@ function InputField({type, label, value, placeholder, handleChange, required}: I
           placeholder={placeholder}
           className={className}
           value={value}
-          onChange={handleChange}
+          onChange={onChange}
         />
       )}
     </div>
@@ -34,6 +34,6 @@ export interface InputProps {
   label: string,
   value: string,
   placeholder: string,
-  handleChange: (e: SyntheticEvent) => void
+  onChange: (e: SyntheticEvent) => void
   required: boolean
 }

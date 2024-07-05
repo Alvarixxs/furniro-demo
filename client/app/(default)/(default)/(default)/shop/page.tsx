@@ -3,7 +3,7 @@ import ShopPagination from "@/app/ui/_components/_shop/ShopPagination";
 import ShopFilter from "@/app/ui/_components/_shop/ShopFilter";
 import FeaturedProducts from "@/app/ui/_components/_products/FeaturedProducts";
 import {Suspense} from "react";
-import {FeaturedProductsSkeleton} from "@/app/ui/_components/skeletons";
+import {FeaturedProductsSkeleton} from "@/app/ui/_components/_utils/skeletons";
 import {ProductUrlParams} from "@/app/lib/types";
 import {fetchTotalProducts} from "@/app/lib/data";
 import {calculateTotalPages} from "@/app/lib/utils";

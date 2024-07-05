@@ -29,16 +29,16 @@ const rangeItems = [
   {
     text: "Dining",
     imageSrc: Dining,
-    slug: "/shop/dining"
+    slug: "/shop?page=1&range=dining"
   },
   {
     text: "Living",
     imageSrc: Living,
-    slug: "/shop/living"
+    slug: "/shop?page=1&range=living"
   },
   {
     text: "Bedroom",
     imageSrc: Bedroom,
-    slug: "/shop/bedroom"
+    slug: "/shop?page=1&range=bedroom"
   }
 ]

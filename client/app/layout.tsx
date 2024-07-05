@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import {poppins} from "@/app/ui/fonts";
 import Header from "@/app/ui/_components/_header/Header";
-import Providers from "@/app/ui/_components/providers";
+import Providers from "@/app/ui/_components/_utils/providers";
 
 export const metadata: Metadata = {
   title: {

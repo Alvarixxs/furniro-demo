@@ -1,5 +1,11 @@
 import axios from "axios";
-import {ContactFormValues, Product, ProductQueryParams, ProductTotalQueryParams} from "@/app/lib/types";
+import {
+  ContactFormValues,
+  NewsletterFormValues,
+  Product,
+  ProductQueryParams,
+  ProductTotalQueryParams
+} from "@/app/lib/types";
 
 // Ensure that BASE_URL is defined in your environment variables
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "";
@@ -9,7 +15,7 @@ const fetchData = async (url: string, params: ProductQueryParams | ProductTotalQ
   return response.data; // Access the data property of the Axios response
 }
 
-const postData = async (url: string, data: ContactFormValues) => {
+const postData = async (url: string, data: ContactFormValues | NewsletterFormValues) => {
   await axios.post(`${BASE_URL}${url}`, data)
 }
 
@@ -22,5 +28,9 @@ export const fetchTotalProducts = async (query: string = '', range: string = '')
 }
 
 export const postContactInfo = async (data: ContactFormValues) => {
-  await postData('/api/contacts', data)
+  await postData('/api/contact', data)
+}
+
+export const postNewsletterInfo = async (data: NewsletterFormValues) => {
+  await postData('/api/newsletter', data)
 }

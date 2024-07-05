@@ -2,13 +2,14 @@
 
 import * as yup from 'yup';
 import {useFormik} from "formik";
-import InputField from "@/app/ui/_components/_form/InputField";
+import InputField from "@/app/ui/_components/_utils/InputField";
 import {ContactFormValues} from "@/app/lib/types";
 import {postContactInfo} from "@/app/lib/data";
 import {useState} from "react";
 
 function ContactForm() {
   const [message, setMessage] = useState<string | null>(null)
+
   const onSubmit = async (values: ContactFormValues) => {
     try {
       await postContactInfo(values)
@@ -34,7 +35,7 @@ function ContactForm() {
               label={item.label}
               placeholder={item.placeholder}
               value={formik.values[item.value as keyof ContactFormValues]}
-              handleChange={formik.handleChange(item.value)}
+              onChange={formik.handleChange(item.value)}
               required={item.required}
             />
             {formik.touched[item.value as keyof ContactFormValues] && formik.errors[item.value as keyof ContactFormValues] && (

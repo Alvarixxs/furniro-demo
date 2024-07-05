@@ -36,6 +36,10 @@ export interface ContactFormValues {
   message: string,
 }
 
+export interface NewsletterFormValues {
+  email: string;
+}
+
 export interface AuthContextType {
   auth: string | null;
   setAuth: Dispatch<SetStateAction<string | null>>;
