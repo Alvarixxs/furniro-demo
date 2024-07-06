@@ -5,8 +5,8 @@ router.post("/", async (req, res) => {
   try {
     const contact = await Contact.create(req.body)
     res.json(contact)
-  } catch (err) {
-    res.status(400).end()
+  } catch (error) {
+    res.send({error: error.message}).status(400).end()
   }
 })
 

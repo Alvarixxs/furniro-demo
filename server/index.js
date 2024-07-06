@@ -8,6 +8,8 @@ const productsRouter = require('./controllers/products')
 const productsInfoRouter = require('./controllers/productsInfo')
 const contactsRouter = require('./controllers/contacts')
 const newslettersRouter = require('./controllers/newsletters')
+const usersRouter = require('./controllers/users')
+const loginRouter = require('./controllers/login')
 
 const middleware = require('./util/middleware')
 const cors = require('cors')
@@ -20,6 +22,8 @@ app.use('/api/products', productsRouter)
 app.use('/api/productsInfo', productsInfoRouter)
 app.use('/api/contact', contactsRouter)
 app.use('/api/newsletter', newslettersRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
 
 app.use(express.static(__dirname + '/public'));
 
