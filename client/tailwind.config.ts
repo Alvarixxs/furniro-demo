@@ -42,6 +42,10 @@ const config: Config = {
           '0%': {transform: 'translateY(50%)', opacity: '0'},
           '100%': {transform: 'translateY(0)', opacity: '1'},
         },
+        appearFromRight: {
+          '0%': {transform: 'translateX(-50%)', opacity: '0'},
+          '100%': {transform: 'translateX(0)', opacity: '1'},
+        },
         shimmer: {
           '100%': {
             transform: 'translateX(100%)',
@@ -49,7 +53,8 @@ const config: Config = {
         },
       },
       animation: {
-        'appear-from-below': 'appearFromBelow 2s ease-out',
+        'appear-from-below': 'appearFromBelow 1s ease-out',
+        'appear-from-right': 'appearFromRight 300ms ease-out',
       }
     },
   },

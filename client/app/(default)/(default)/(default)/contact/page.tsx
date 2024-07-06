@@ -10,7 +10,7 @@ function Contact() {
           For More Information About Our Product & Services. Please Feel Free To Drop Us An Email. Our Staff Always Be There To Help You Out. Do Not Hesitate!
         </p>
       </div>
-      <div className="flex flex-col md:flex-row gap-20 md:gap-40 mb-16">
+      <div className="flex flex-col md:flex-row gap-20 md:gap-40 mb-24">
         <ContactInfo />
         <ContactForm />
       </div>

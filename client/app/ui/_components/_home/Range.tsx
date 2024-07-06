@@ -14,7 +14,7 @@ function Range() {
           <Link key={item.slug} href={item.slug} className="flex flex-col gap-5 group">
             <Image src={item.imageSrc} alt="" className="rounded-xl"/>
             <div className="flex items-center justify-center gap-1">
-              <p className="text-center text-light-black text-2xl font-semibold">{item.text}</p>
+              <p className="text-center text-light-black text-2xl font-semibold group-hover:-translate-x-px transition duration-500">{item.text}</p>
               <Icon path={mdiArrowRight} size={1} className="group-hover:translate-x-2 transition duration-500"/>
             </div>
           </Link>

@@ -81,7 +81,7 @@ const validationSchema = yup.object().shape({
   email: yup
     .string()
     .email("doesn't match email")
-    .required('repository name is required'),
+    .required('email is required'),
   subject: yup
     .string(),
   message: yup

@@ -13,7 +13,8 @@ export default function Home() {
     <main>
       <section className="bg-scand-interior bg-no-repeat bg-center bg-cover p-14 flex">
         <div
-          className="mt-12 md:mt-36 mb-14 md:mb-40 pl-10 pr-14 pt-16 pb-10 ml-auto self-start bg-sand max-w-xl rounded-xl">
+          className="mt-12 md:mt-36 mb-14 md:mb-40 pl-10 pr-14 pt-16 pb-10 ml-auto self-start bg-sand max-w-xl rounded-xl"
+        >
           <p className="text-base font-semibold text-light-black tracking-widest">New Arrival</p>
           <h1 className="text-5xl font-bold text-gold leading-[65px] animate-appear-from-below">Discover Our New
             Collection</h1>

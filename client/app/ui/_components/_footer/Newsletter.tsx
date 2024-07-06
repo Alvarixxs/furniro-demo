@@ -27,16 +27,18 @@ function Newsletter() {
   return (
     message === null ? (
       <form className="flex flex-wrap gap-3" onSubmit={formik.handleSubmit}>
-        <input
-          value={formik.values.email}
-          onChange={formik.handleChange('email')}
-          placeholder="Enter your email address"
-          className="text-sm p-1 appearance-none border-b border-black focus:outline-none md:max-w-32 xl:max-w-96"
-        />
-        {formik.touched.email && formik.errors.email && (
-          <p className="text-red-700 text-sm">{formik.errors.email}</p>
-        )}
-        <button type="submit" className="border-b border-black text-base">SUBSCRIBE</button>
+        <div className="flex flex-col">
+          <input
+            value={formik.values.email}
+            onChange={formik.handleChange('email')}
+            placeholder="Enter your email address"
+            className="text-sm p-1 appearance-none border-b border-black focus:outline-none md:max-w-32 xl:max-w-96"
+          />
+          {formik.touched.email && formik.errors.email && (
+            <p className="text-red-700 text-sm">{formik.errors.email}</p>
+          )}
+        </div>
+        <button type="submit" className="border-b border-black text-sm self-start p-1">SUBSCRIBE</button>
       </form>
     ) : (
       <p className="text-sm p-1">{message}</p>

@@ -40,6 +40,18 @@ export interface NewsletterFormValues {
   email: string;
 }
 
+export interface LogInFormValues {
+  username: string;
+  password: string;
+}
+
+export interface SignUpFormValues {
+  name: string,
+  username: string,
+  password: string,
+  confirmPassword: string,
+}
+
 export interface AuthContextType {
   auth: string | null;
   setAuth: Dispatch<SetStateAction<string | null>>;

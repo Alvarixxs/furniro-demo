@@ -1,9 +1,9 @@
 import {SyntheticEvent} from "react";
 
 function InputField({type, label, value, placeholder, onChange, required}: InputProps) {
-  const className = "py-5 px-7 max-w-[528px] md:w-[528px] border border-light-gray rounded-xl"
+  const className = "py-4 px-5 max-w-[400px] md:w-[400px] border border-light-gray rounded-xl"
   return (
-    <div className="flex flex-col gap-4 text-base">
+    <div className="flex flex-col gap-3 text-base">
       <label className="font-medium">
         {label} {required ? <b className="text-red-700">*</b> : null}
       </label>
