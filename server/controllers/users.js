@@ -1,7 +1,8 @@
 const bcrypt = require('bcrypt')
 const router = require('express').Router()
 
-const { User } = require('../models')
+const { User, Product} = require('../models')
+const {tokenExtractor} = require("../util/middleware");
 
 router.get('/', async (req, res) => {
   const users = await User.findAll({
@@ -10,7 +11,7 @@ router.get('/', async (req, res) => {
   res.json(users)
 })
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
   try {
     const { username, name, password } = req.body
 
@@ -25,13 +26,37 @@ router.post('/', async (req, res) => {
 
     res.status(201).json({username, name})
   } catch (error) {
-    res.status(400).send({error: error.message})
+    next(error)
   }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', tokenExtractor, async (req, res) => {
+  console.log(req.params.id, req.decodedToken.id)
+
+  if (Number(req.params.id) !== req.decodedToken.id) {
+    res.status(401).end()
+  }
+
   const user = await User.findByPk(req.params.id, {
     attributes: { exclude: ['passwordHash'] },
+    include: [
+      {
+        model: Product,
+        as: 'liked_products',
+        attributes: {exclude: ['userId']},
+        through: {
+          attributes: ['id'],
+        }
+      },
+      {
+        model: Product,
+        as: 'cart_products',
+        attributes: {exclude: ['userId']},
+        through: {
+          attributes: ['id','quantity'],
+        }
+      }
+    ]
   })
   if (user) {
     res.json(user)

@@ -15,8 +15,6 @@ const unknownEndpoint = (request, response) => {
 }
 
 const errorHandler = (error, request, response, next) => {
-  logger.error(error.message)
-  logger.error(error.name)
   if (error.name === 'SequelizeDatabaseError' ||
     error.name === 'SequelizeValidationError') {
     return response.status(400).send({error: error.message})

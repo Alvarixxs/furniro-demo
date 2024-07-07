@@ -1,12 +1,12 @@
 const router = require('express').Router()
 const {Contact} = require("../models");
 
-router.post("/", async (req, res) => {
+router.post("/", async (req, res, next) => {
   try {
     const contact = await Contact.create(req.body)
     res.json(contact)
   } catch (error) {
-    res.send({error: error.message}).status(400).end()
+    next(error)
   }
 })
 

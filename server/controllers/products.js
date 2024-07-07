@@ -33,17 +33,12 @@ router.get('/', async (req, res) => {
     ]
   }
 
-  try {
-    const products = await Product.findAll({
-      where,
-      limit: numItems,
-      offset: offset
-    });
-    res.status(200).json(products);
-  } catch (error) {
-    console.error("Error fetching products:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
+  const products = await Product.findAll({
+    where,
+    limit: numItems,
+    offset: offset
+  });
+  res.status(200).json(products);
 });
 
 router.post('/', async (req, res) => {

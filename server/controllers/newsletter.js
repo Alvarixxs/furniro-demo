@@ -1,12 +1,12 @@
 const router = require('express').Router()
 const {Newsletter} = require("../models");
 
-router.post("/", async (req, res) => {
+router.post("/", async (req, res, next) => {
   try {
     const newsletter = await Newsletter.create(req.body)
     res.json(newsletter)
-  } catch (err) {
-    res.status(400).end()
+  } catch (error) {
+    next(error)
   }
 })
 
