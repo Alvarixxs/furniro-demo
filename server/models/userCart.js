@@ -31,7 +31,13 @@ UserCart.init({
   sequelize,
   underscored: true,
   timestamps: false,
-  modelName: 'userCart'
+  modelName: 'userCart',
+  indexes: [
+    {
+      unique: true,
+      fields: ['userId', 'productId'],
+    }
+  ]
 })
 
 module.exports = UserCart

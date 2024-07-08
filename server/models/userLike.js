@@ -24,7 +24,13 @@ UserLike.init({
   sequelize,
   underscored: true,
   timestamps: false,
-  modelName: 'userLike'
+  modelName: 'userLike',
+  indexes: [
+    {
+      unique: true,
+      fields: ['userId', 'productId'],
+    }
+  ]
 })
 
 module.exports = UserLike
