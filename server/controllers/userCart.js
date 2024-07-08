@@ -7,8 +7,8 @@ router.post("/", tokenExtractor, async (req, res, next) => {
     if (req.body.userId !== req.decodedToken.id) {
       res.status(401).end()
     }
-    await UserCart.create(req.body)
-    res.status(204).end()
+    const userCart = await UserCart.create(req.body)
+    res.json(userCart)
   } catch (error) {
     next(error)
   }
