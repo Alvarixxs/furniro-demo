@@ -19,10 +19,10 @@ function ProductView({auth, product, liked, carted, likeProduct, cartProduct, un
           <p className="text-2xl font-semibold">{product.name}</p>
           <p className="text-base font-medium mb-2 text-light-gray">{product.excerpt}</p>
           {product.discount ? (
-            <div className="flex items-end gap-4">
+            <div className="flex flex-col mb-4">
               <p
-                className="text-light-black font-semibold text-xl mb-4">{`Rp ${formatNumber(product.price - product.price * (product.discount / 100))}`}</p>
-              <s className="text-light-gray text-base mb-4">{`Rp ${formatNumber(product.price)}`}</s>
+                className="text-light-black font-semibold text-xl ">{`Rp ${formatNumber(product.price - product.price * (product.discount / 100))}`}</p>
+              <s className="text-light-gray text-base ">{`Rp ${formatNumber(product.price)}`}</s>
               <div
                 className="absolute right-6 top-6 rounded-full py-4 px-1 bg-orange-red text-white">{`- ${product.discount}%`}</div>
             </div>

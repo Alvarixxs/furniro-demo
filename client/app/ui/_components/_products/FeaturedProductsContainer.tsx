@@ -68,7 +68,7 @@ function FeaturedProductsContainer({products}: {products: Product[]}) {
   }
 
   return (
-    <div className="flex flex-wrap justify-center gap-8 max-w-7xl overflow-hidden">
+    <div className="flex flex-wrap justify-center gap-8 max-w-[1400px] overflow-hidden">
       {products.map((product) => (
         <ProductView
           key={product.id}

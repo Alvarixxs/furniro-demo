@@ -64,7 +64,7 @@ function InspirationCarousel() {
                 </div>
                 <p className="font-semibold text-2xl text-light-black">{item.excerpt}</p>
               </div>
-              <Link href={item.slug} className="p-3 bg-gold text-white self-end"><Icon path={mdiArrowRight} size={1} /></Link>
+              <button className="p-3 bg-gold text-white self-end"><Icon path={mdiArrowRight} size={1} /></button>
             </div>
           </div>
         ))}
