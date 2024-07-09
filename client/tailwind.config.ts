@@ -27,7 +27,8 @@ const config: Config = {
         "gold": "#B88E2F",
         "orange-red": "#E97171",
         "turquoise": "#2EC1AC",
-        "trans-gray":"rgba(58,58,58,0.72)"
+        "trans-gray":"rgba(58,58,58,0.72)",
+        "skin": "#FAF3EA",
       },
       transitionProperty: {
         "height": "height",

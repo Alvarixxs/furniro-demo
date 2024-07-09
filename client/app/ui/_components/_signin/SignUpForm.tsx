@@ -19,13 +19,13 @@ function SignUpForm() {
   const onSubmit = async (values: SignUpFormValues) => {
     try {
       await postSignupInfo(values)
-      const {username, token} = await postLoginInfo({username: values.username, password: values.password})
+      const {id, token} = await postLoginInfo({username: values.username, password: values.password})
       setToken(token)
       if (setAuth) {
-        setAuth(username)
+        setAuth(id)
       }
       window.localStorage.setItem(
-        'loggedFurniroUser', JSON.stringify({username, token})
+        'loggedFurniroUser', JSON.stringify({id, token})
       )
       router.push('/')
     } catch (error) {

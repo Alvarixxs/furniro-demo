@@ -4,16 +4,10 @@ import {Product} from "@/app/lib/types";
 import {BASE_URL} from "@/app/lib/data";
 import Link from "next/link";
 import {formatNumber} from "@/app/lib/utils";
-import Icon from '@mdi/react';
-import { mdiShareVariant, mdiCompareHorizontal,mdiHeartOutline } from '@mdi/js';
-import {useContext} from "react";
-import {AuthContext} from "@/app/ui/contexts";
+import {mdiCompareHorizontal, mdiHeartOutline, mdiShareVariant} from "@mdi/js";
+import Icon from "@mdi/react";
 
-function ProductView({product}: {product: Product}) {
-  const authContext = useContext(AuthContext);
-
-  const auth = authContext?.auth;
-
+function ProductView({auth, product, liked, carted, likeProduct, cartProduct, unLikeProduct, unCartProduct}: ProductViewProps) {
   return (
     <div className={`bg-very-light-gray relative group`}>
       <Link
@@ -47,20 +41,28 @@ function ProductView({product}: {product: Product}) {
       >
         {auth ? (
           <>
-            <button className="bg-white py-3 px-12 text-gold font-semibold">Add to cart</button>
+            <button className={`${!carted ? 'text-gold bg-white': 'text-white bg-gold'} py-3 px-12 font-semibold pointer-events-auto`} onClick={!carted ? cartProduct : unCartProduct}>
+              {!carted ? 'Add to cart' : 'Added to cart'}
+            </button>
             <div className="flex mt-6 gap-4 text-white text-base font-semibold">
-              {navItems.map((item) => (
-                <Link key={item.slug} href={item.slug} className="flex items-center">
-                  <Icon path={item.icon} size={1}/>
-                  <p>{item.text}</p>
-                </Link>
-              ))}
+              <button className="flex items-center pointer-events-auto">
+                <Icon path={mdiShareVariant} size={1}/>
+                <p>Share</p>
+              </button>
+              <Link href="/compare" className="flex items-center pointer-events-auto">
+                <Icon path={mdiCompareHorizontal} size={1}/>
+                <p>Compare</p>
+              </Link>
+              <button className={`flex items-center pointer-events-auto ${liked ? 'text-red-700' : ''}`} onClick={!liked ? likeProduct : unLikeProduct}>
+                <Icon path={mdiHeartOutline} size={1}/>
+                <p>{!liked ? 'like' : 'liked'}</p>
+              </button>
             </div>
           </>
         ) : (
           <div className="text-white px-6 text-center font-semibold text-base">
             <p className="inline">Liked our product? Save it to your cart.</p>
-            <Link href="/login" className="underline ml-2">Sign in</Link>
+            <Link href="/login" className="underline ml-2 pointer-events-auto">Sign in</Link>
           </div>
         )}
       </div>
@@ -70,22 +72,13 @@ function ProductView({product}: {product: Product}) {
 
 export default ProductView;
 
-const navItems = [
-  {
-    text: "Share",
-    icon: mdiShareVariant,
-    slug: "/"
-  },
-  {
-    text: "Compare",
-    icon: mdiCompareHorizontal,
-    slug: "/compare"
-
-  },
-  {
-    text: "Like",
-    icon: mdiHeartOutline,
-    slug: "/liked"
-  }
-]
-
+interface ProductViewProps {
+  auth: number | null | undefined,
+  product: Product,
+  liked: boolean,
+  carted: boolean,
+  likeProduct: () => void,
+  cartProduct: () => void,
+  unLikeProduct: () => void,
+  unCartProduct: () => void,
+}

@@ -10,6 +10,19 @@ export interface Product {
   discount: number;
 }
 
+export interface ProductLike extends Product {
+  userLike: {
+    id: number;
+  }
+}
+
+export interface ProductCart extends Product {
+  userCart: {
+    id: number;
+    quantity: number;
+  }
+}
+
 export interface ProductQueryParams {
   query: string;
   currentPage: number;
@@ -52,7 +65,18 @@ export interface SignUpFormValues {
   confirmPassword: string,
 }
 
+export interface LikedProductValues {
+  userId: number;
+  productId: number;
+}
+
+export interface CartProductValues {
+  userId: number;
+  productId: number;
+  quantity: number;
+}
+
 export interface AuthContextType {
-  auth: string | null;
-  setAuth: Dispatch<SetStateAction<string | null>>;
+  auth: number | null;
+  setAuth: Dispatch<SetStateAction<number | null>>;
 }

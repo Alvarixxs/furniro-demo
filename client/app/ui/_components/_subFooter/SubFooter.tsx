@@ -7,7 +7,7 @@ import Image from "next/image";
 
 function SubFooter() {
   return (
-    <footer className="bg-light-beige flex items-center justify-center flex-wrap gap-14 px-6 py-24">
+    <footer className="bg-skin flex items-center justify-center flex-wrap gap-14 px-6 py-24">
       {subFooterItems.map((item) => (
         <div key={item.text} className="flex gap-3">
           <Image src={item.icon} alt="" />

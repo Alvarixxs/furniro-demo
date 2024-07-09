@@ -19,9 +19,9 @@ function LogInForm() {
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedFurniroUser')
     if (loggedUserJSON) {
-      const {username, token} = JSON.parse(loggedUserJSON)
+      const {id, token} = JSON.parse(loggedUserJSON)
       if (setAuth) {
-        setAuth(username)
+        setAuth(id)
       }
       setToken(token)
       router.push('/')
@@ -30,13 +30,13 @@ function LogInForm() {
 
   const onSubmit = async (values: LogInFormValues) => {
     try {
-      const {username, token} = await postLoginInfo(values)
+      const {id, token} = await postLoginInfo(values)
       setToken(token)
       if (setAuth) {
-        setAuth(username)
+        setAuth(id)
       }
       window.localStorage.setItem(
-        'loggedFurniroUser', JSON.stringify({username, token})
+        'loggedFurniroUser', JSON.stringify({id, token})
       )
       router.push('/')
     } catch (error) {

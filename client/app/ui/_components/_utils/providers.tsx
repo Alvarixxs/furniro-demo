@@ -9,7 +9,7 @@ export function AuthProvider(
   }: Readonly<{
     children: React.ReactNode;
   }>) {
-  const [auth, setAuth] = useState<string | null>(null)
+  const [auth, setAuth] = useState<number | null>(null)
 
   return (
     <AuthContext.Provider value={{ auth, setAuth }} >{children}</AuthContext.Provider>
